@@ -1,0 +1,14 @@
+**/*.svg
+package.json
+.DS_Store
+.umi
+.umi-production
+/dist
+.eslintignore
+.editorconfig
+.gitignore
+.prettierignore
+*.lock
+yarn-error.log
+/build
+/public
