@@ -1,6 +1,24 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { resolve } from 'path';
+
+const pathResolve = (pathStr: string) => {
+  return resolve(__dirname, pathStr);
+};
 
 export default defineConfig({
-  plugins: [react()]
-})
+  plugins: [react()],
+  resolve: {
+    alias: [
+      { find: /^~/, replacement: '' },
+      { find: /@\//, replacement: pathResolve('src/') + '/' },
+    ],
+  },
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+      },
+    },
+  },
+});

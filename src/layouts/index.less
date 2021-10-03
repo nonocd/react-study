@@ -1,0 +1,70 @@
+@import 'antd/es/style/themes/default.less';
+
+@namespace: keep;
+
+// tabs
+@multiple-height: 30px;
+
+// headers
+@header-height: 48px;
+
+@keep-layout-prefix-cls: ~'@{namespace}-layout';
+
+@keep-layout-header-bg: @component-background;
+
+.@{keep-layout-prefix-cls} {
+  width: 100%;
+  min-height: 100%;
+
+  > .ant-layout {
+    min-height: 100%;
+  }
+
+  &-header {
+    display: flex;
+    height: @header-height;
+    align-items: center;
+    justify-content: space-between;
+    color: @white;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      padding-left: 7px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      img {
+        height: @header-height;
+        padding: 5px 0px;
+      }
+
+      h1 {
+        margin: 0px;
+        font-size: 16px;
+        line-height: @header-height;
+        color: @white;
+      }
+    }
+
+    &-fixed {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    &.light {
+      background: @keep-layout-header-bg;
+      color: @text-color;
+
+      h1 {
+        color: @text-color;
+      }
+    }
+  }
+
+  // &-sider {
+
+  // }
+}
