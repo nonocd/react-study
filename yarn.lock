@@ -337,10 +337,19 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^17.0.26":
+"@types/react@*":
   version "17.0.26"
   resolved "https://registry.npmmirror.com/@types/react/download/@types/react-17.0.26.tgz#960ea4b3518cc154ed7df3b35656c508df653331"
   integrity sha1-lg6ks1GMwVTtffOzVlbFCN9lMzE=
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^17.0.27":
+  version "17.0.27"
+  resolved "https://registry.npmmirror.com/@types/react/download/@types/react-17.0.27.tgz#6498ed9b3ad117e818deb5525fa1946c09f2e0e6"
+  integrity sha1-ZJjtmzrRF+gY3rVSX6GUbAny4OY=
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -752,14 +761,14 @@ json5@^2.1.2:
   dependencies:
     minimist "^1.2.5"
 
-less@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.npm.taobao.org/less/download/less-4.1.1.tgz?cache=0&sync_timestamp=1612066490256&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fless%2Fdownload%2Fless-4.1.1.tgz#15bf253a9939791dc690888c3ff424f3e6c7edba"
-  integrity sha1-Fb8lOpk5eR3GkIiMP/Qk8+bH7bo=
+less@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.npmmirror.com/less/download/less-4.1.2.tgz?cache=0&sync_timestamp=1633303807622&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fless%2Fdownload%2Fless-4.1.2.tgz#6099ee584999750c2624b65f80145f8674e4b4b0"
+  integrity sha1-YJnuWEmZdQwmJLZfgBRfhnTktLA=
   dependencies:
     copy-anything "^2.0.1"
     parse-node-version "^1.0.1"
-    tslib "^1.10.0"
+    tslib "^2.3.0"
   optionalDependencies:
     errno "^0.1.1"
     graceful-fs "^4.1.2"
@@ -1442,10 +1451,10 @@ toggle-selection@^1.0.6:
   resolved "https://registry.npm.taobao.org/toggle-selection/download/toggle-selection-1.0.6.tgz#6e45b1263f2017fa0acc7d89d78b15b8bf77da32"
   integrity sha1-bkWxJj8gF/oKzH2J14sVuL932jI=
 
-tslib@^1.10.0:
-  version "1.14.1"
-  resolved "https://registry.nlark.com/tslib/download/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
-  integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
+tslib@^2.3.0:
+  version "2.3.1"
+  resolved "https://registry.nlark.com/tslib/download/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=
 
 typescript@^4.4.3:
   version "4.4.3"
