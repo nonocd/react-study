@@ -1,10 +1,14 @@
 import { ReactNode } from 'react';
+import { Outlet, Route, Routes } from 'react-router-dom';
 import { Layout } from 'antd';
 import { SiderTheme } from 'antd/lib/layout/Sider';
+import SiderMenu from './Menu/SiderMenu';
+import Header from './Header/Header';
 import Home from '@/components/Home';
 
 import 'antd/dist/antd.css';
 import './index.less';
+import About from '@/components/About';
 
 export type Config = {
   title?: string;
@@ -19,17 +23,21 @@ export default (props: { children?: ReactNode }) => {
     navTheme: 'light',
   };
 
-  const prefixCls = 'keep-layout';
-  const className = prefixCls;
-  const siderCls = `${prefixCls}-sider`;
+  const prefixCls = 'keep';
+  const className = `${prefixCls}-layout`;
+  const siderCls = `${prefixCls}-layout-sider`;
 
   return (
     <Layout className={className}>
-      <Layout.Header></Layout.Header>
+      <Header />
       <Layout>
-        <Layout.Sider className={siderCls} theme={config.theme}></Layout.Sider>
+        <SiderMenu className={siderCls} theme={config.theme} />
         <Layout.Content>
-          <Home />
+          <Outlet />
+          <Routes>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/about" element={<About />}></Route>
+          </Routes>
         </Layout.Content>
       </Layout>
     </Layout>
