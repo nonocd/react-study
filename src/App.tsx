@@ -1,5 +1,6 @@
+import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
-import BasicLayout from './layouts/BasicLayout';
+import routeConfig from './router/router.config';
 import './App.css';
 
 import zhCN from 'antd/es/locale/zh_CN';
@@ -9,11 +10,11 @@ import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
 
 function App() {
+  let routes = useRoutes(routeConfig);
+
   return (
     <div className="App">
-      <ConfigProvider locale={zhCN}>
-        <BasicLayout />
-      </ConfigProvider>
+      <ConfigProvider locale={zhCN}>{routes}</ConfigProvider>
     </div>
   );
 }
