@@ -4,6 +4,7 @@ import { Layout } from 'antd';
 import { SiderTheme } from 'antd/lib/layout/Sider';
 import SiderMenu from './Menu/SiderMenu';
 import Header from './Header/Header';
+import logo from '@/assets/logo.svg';
 
 import 'antd/dist/antd.css';
 import './index.less';
@@ -27,7 +28,7 @@ export default (props: { children?: ReactNode }) => {
 
   return (
     <Layout className={className}>
-      <Header />
+      <Header title="React Study" logo={logo} />
       <Layout>
         <SiderMenu className={siderCls} theme={config.theme} />
         <Layout.Content>
