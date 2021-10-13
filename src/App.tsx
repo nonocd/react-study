@@ -1,5 +1,7 @@
+import { Suspense } from 'react';
 import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
+import PageLoader from './components/PageLoader';
 import routeConfig from './router/router.config';
 import './App.css';
 
@@ -14,7 +16,9 @@ function App() {
 
   return (
     <div className="App">
-      <ConfigProvider locale={zhCN}>{routes}</ConfigProvider>
+      <Suspense fallback={<PageLoader />}>
+        <ConfigProvider locale={zhCN}>{routes}</ConfigProvider>
+      </Suspense>
     </div>
   );
 }
