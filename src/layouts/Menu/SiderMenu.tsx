@@ -1,29 +1,20 @@
-import { Layout, Menu } from 'antd';
-import { SiderTheme } from 'antd/lib/layout/Sider';
-import { NavLink } from 'react-router-dom';
+import { Layout } from 'antd';
+import BaseMenu, { BaseMenuProps } from './BaseMenu';
 
 const { Sider } = Layout;
 
-export type MenuProps = {
+export type SiderMenuProps = Omit<BaseMenuProps, 'model'> & {
   className?: string;
-  theme?: SiderTheme;
   width?: number;
   collapsed?: boolean;
   onCollapse?: (collapsed: boolean) => {};
 };
 
-const SiderMenu: React.FC<MenuProps> = props => {
-  const { theme, className, width = 208 } = props;
+const SiderMenu: React.FC<SiderMenuProps> = props => {
+  const { theme, className, width = 208, menuData } = props;
   return (
     <Sider collapsible width={width} theme={theme} className={className}>
-      <Menu mode="inline">
-        <Menu.Item>
-          <NavLink to={'/home'}>Home</NavLink>
-        </Menu.Item>
-        <Menu.Item>
-          <NavLink to={'/about'}>About</NavLink>
-        </Menu.Item>
-      </Menu>
+      <BaseMenu menuData={menuData} />
     </Sider>
   );
 };

@@ -16,6 +16,11 @@ export type Config = {
 };
 
 export default (props: { children?: ReactNode }) => {
+  const menuData = [
+    { path: '/home', name: 'Home' },
+    { path: '/about', name: 'About' },
+    { path: '/role', name: '角色管理' },
+  ];
   const config: Config = {
     title: 'Keep Admin',
     theme: 'light',
@@ -30,7 +35,7 @@ export default (props: { children?: ReactNode }) => {
     <Layout className={className}>
       <Header title="React Study" logo={logo} />
       <Layout>
-        <SiderMenu className={siderCls} theme={config.theme} />
+        <SiderMenu className={siderCls} theme={config.theme} menuData={menuData} />
         <Layout.Content>
           <Outlet />
         </Layout.Content>
