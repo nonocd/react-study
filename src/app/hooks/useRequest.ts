@@ -1,4 +1,4 @@
-import { message } from 'antd';
+import { message, notification } from 'antd';
 import { Axios, AxiosResponse } from 'axios';
 import { getErrorMessage } from '../utils/status';
 
@@ -8,24 +8,38 @@ type Result<T = any> = {
   data: T;
 };
 
-const instance = new Axios({ timeout: 10 * 1000 });
+console.log('baseurl:', import.meta.env.BASE_URL);
+const axios = new Axios({
+  baseURL: import.meta.env.BASE_URL,
+  timeout: 10 * 1000,
+  headers: { 'Content-Type': 'application/json' },
+});
 
-instance.interceptors.response.use(
+axios.interceptors.response.use(
   (response: AxiosResponse) => {
     const { data, status } = response;
 
     if (status == 200) {
-      return data;
+      return JSON.parse(data);
     }
-    message.error(getErrorMessage(status));
+    notification.error({
+      message: getErrorMessage(status),
+      description: data || response.statusText || 'Error',
+    });
   },
   (error: any) => {
-    message.error('请求出错：' + error);
+    let msg = '请求错误';
+    notification.error({
+      message: msg,
+      description: error.response.data?.msg || 'Error',
+    });
+
+    return Promise.reject(error);
   },
 );
 
 const useRequest = () => {
-  return instance;
+  return axios;
 };
 
 export default useRequest;
