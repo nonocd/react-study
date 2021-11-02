@@ -4,7 +4,7 @@ import { ConfigProvider } from 'antd';
 import PageLoader from './components/PageLoader';
 import routeConfig from './router/router.config';
 import './App.css';
-import { AuthProvider } from './app/auth/useAuth';
+import { AuthProvider } from './components/auth';
 
 import zhCN from 'antd/es/locale/zh_CN';
 import moment from 'moment';

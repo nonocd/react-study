@@ -1,30 +1,14 @@
-import { createContext, useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
-import { AuthConsts } from './AuthConsts';
-import { fakeAuthProvider } from '.';
-import { useLocalStorage } from '../hooks/useLocalStorage';
-
-type AuthContextType = {
-  token: string;
-  user: any;
-  userId: string;
-  username: string;
-  isAuthenticated: () => boolean;
-  signin: (formData: any, callback: VoidFunction) => void;
-  signout: (callback: VoidFunction) => void;
-};
+import { useLocalStorage } from '@/app/hooks/useLocalStorage';
+import { AuthContext, useAuth } from '@/hooks/useAuth';
+import { AuthConsts } from '@/services/auth/AuthConsts';
+import { fakeAuthProvider } from '@/services/auth';
 
 // 登录认证结果
 export type AuthResult = {
   token: string;
   user: any;
 };
-
-const AuthContext = createContext<AuthContextType>(null!);
-
-export function useAuth() {
-  return useContext(AuthContext);
-}
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [token, setToken] = useLocalStorage(AuthConsts.ACCESS_TOKEN_KEY, '');

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { message, Tabs } from 'antd';
 import { LoginForm, ProFormCaptcha, ProFormText } from '@ant-design/pro-form';
 import { UserOutlined, MobileOutlined, LockOutlined } from '@ant-design/icons';
-import useLogin from '@/app/login/useLogin';
+import useLogin from '@/services/login/useLogin';
 
 type LoginType = 'phone' | 'account';
 

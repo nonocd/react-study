@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Form, message } from 'antd';
-import { useAuth } from '../auth/useAuth';
+import { useAuth } from '@/hooks/useAuth';
 
 export interface LoginParam {
   account: string;
