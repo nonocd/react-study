@@ -4,6 +4,7 @@ import { ConfigProvider } from 'antd';
 import PageLoader from './components/PageLoader';
 import routeConfig from './router/router.config';
 import './App.css';
+import { AuthProvider } from './app/auth/useAuth';
 
 import zhCN from 'antd/es/locale/zh_CN';
 import moment from 'moment';
@@ -16,9 +17,11 @@ function App() {
 
   return (
     <div className="App">
-      <Suspense fallback={<PageLoader />}>
-        <ConfigProvider locale={zhCN}>{routes}</ConfigProvider>
-      </Suspense>
+      <AuthProvider>
+        <Suspense fallback={<PageLoader />}>
+          <ConfigProvider locale={zhCN}>{routes}</ConfigProvider>
+        </Suspense>
+      </AuthProvider>
     </div>
   );
 }

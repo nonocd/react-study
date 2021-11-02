@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Form, message } from 'antd';
-import useLoginService from './useLoginService';
+import { useAuth } from '../auth/useAuth';
 
 export interface LoginParam {
   account: string;
@@ -18,20 +18,7 @@ export default function useLogin() {
   let state = location.state as { from: Location };
   let from = state ? state.from.pathname : '/';
 
-  const { signin } = useLoginService();
-
-  const handleFinish = (formData: LoginParam): Promise<boolean> => {
-    const { account, password } = formData;
-
-    var formdata = new FormData();
-    formdata.append('client_id', 'ro.client');
-    formdata.append('grant_type', 'password');
-    formdata.append('username', account);
-    formdata.append('client_secret', 'secret');
-    formdata.append('password', password);
-
-    return new Promise<boolean>(() => {});
-  };
+  const { signin } = useAuth();
 
   form.submit = () => {
     form.validateFields().then(() => {

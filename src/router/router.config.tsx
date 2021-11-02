@@ -4,11 +4,16 @@ import Home from '@/pages/Home';
 import About from '@/pages/About';
 import Login from '@/pages/Login';
 import RoleList from '@/pages/role/RoleList';
+import { RequireAuth } from '@/app/auth/useAuth';
 
 const routes: RouteObject[] = [
   {
     path: '/',
-    element: <BasicLayout />,
+    element: (
+      <RequireAuth>
+        <BasicLayout />
+      </RequireAuth>
+    ),
     children: [
       {
         path: '/home',
