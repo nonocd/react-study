@@ -1,6 +1,4 @@
-import useRequest from '../hooks/useRequest';
-
-const request = useRequest();
+import axios from '@/utils/http/axios/axios';
 
 export interface LoginParam {
   account: string;
@@ -20,11 +18,11 @@ export const fakeAuthProvider = {
       ...rest,
     };
 
-    return request.post('/api/oauth2/token', formData).then(data => {
+    axios.post('/api/oauth2/token', formData).then(data => {
       console.log(data);
       callback(data);
     });
   },
 
-  signout: () => request.post('/api/auth/signout'),
+  signout: () => axios.post('/api/auth/signout'),
 };
